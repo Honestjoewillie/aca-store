@@ -1,9 +1,11 @@
 
     function Products(products){
-    let productDivs = "";
+    let productDivs = [];
     for(let i=0; i < products.length; i++){
+        let btn = document.createElement("button");
         let product = products[i]; 
-        productDivs += `<div>${product.name}</div>`
+        productDivs += `<div>${product.name}</div>`;
+        btn.appendChild(product);
     }
     document.getElementById("stuff").innerHTML = productDivs;
 }
