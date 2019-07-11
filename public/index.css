@@ -1,0 +1,10 @@
+#stuff{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 70px;
+    border: solid 1px black;
+}
+#infoButton_onclick{
+    display: none;
+}
