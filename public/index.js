@@ -2,12 +2,11 @@
    let shoppingCart = [];
 
    function Products(products){
-    let allProducts = document.getElementById('stuff');
     let productDivs = "";
     for(let i=0; i < products.length; i++){
         let product = products[i]; 
     productDivs += 
-    `<div style = "display:fex;" id="prodcuts">
+    `<div>
     <img src="${product.imgUrl}">
     <h3>${product.name}</h3>
     <div>${product.rating}&#9733 rating!</div>
@@ -25,20 +24,13 @@
 window.onload = ()=>{
 Products(products);
 }
-// function ProductDetail(id){
-//     let moreInfo = products.filter(p=>p.id ===id)
-//     Products(moreInfo);
-    //hide the button
-    //document.getElementById('infoButton').style.display = "none";
-    //show all reviews and rating per review
-    //let fullReview = products.filter(p=>p.review ===review)
     function showAll(reviewId){
         let all = "";
         let review = products.filter(p=>p.id === reviewId)
         Products(review);
         let productReview =document.getElementById("review${product.id}");
         review[0].reviews.map(review =>
-            all+= `<div id="infoFull"><div>${review.rating}</div><div>${review.description}</div></div>`)
+            all+= `<div id="review"><div>${review.rating}</div><div>${review.description}</div></div>`)
             productReview.innerHTML = all;
 }
 function search(){
@@ -47,11 +39,7 @@ function search(){
     ///p.name.indexOf or includes();
     Products(filteredProducts);
 }
-//I want this to show ALL reviews on click
-function review(review){
-    let read = products.filter(p=>p.reviews.description === review)
-    Products(read);
-}
+
 //shoping cart
 function addCart(id){
     let addItem = products.filter(product => product.id ===id)
