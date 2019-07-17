@@ -58,12 +58,12 @@ function signedUp(){
 
     function showAll(reviewId){
         let all = "";
-        let review = products.filter(p=>p.id === reviewId)
+        let review = products.map(p=>p.id === reviewId)
         Products(review);
-        let productReview =document.getElementById("review${product.id}");
-        review.reviews.map(review =>
-            all+= `<div id="review"><div>${review.rating}</div><div>${review.description}</div></div>`)
-            productReview.innerHTML = all;
+        // let productReview =document.getElementById("review${product.id}");
+        // review.reviews.map(review =>
+        //     all+= `<div id="review"><div>${review.rating}</div><div>${review.description}</div></div>`)
+        //     productReview.innerHTML = all;
 }
 function search(){
     let searchWord = document.getElementById("searchBar").value;
@@ -76,6 +76,7 @@ function search(){
 function addCart(id){
     let addItem = products.filter(product => product.id ===id)
     shoppingCart.push(addItem);
+    console.log(shoppingCart);
 }
 function myCart(){
     Products(shoppingCart);
