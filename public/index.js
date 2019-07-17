@@ -1,8 +1,8 @@
 
    let shoppingCart = [];
+   let productDivs = [];
 
    function Products(products){
-    let productDivs = "";
     for(let i=0; i < products.length; i++){
         let product = products[i]; 
     productDivs += 
@@ -24,6 +24,16 @@
 window.onload = ()=>{
 Products(products);
 }
+let typeEmail = document.getElementById("email");
+let typePass = document.getElementById("password");
+function signedUp(){
+    let email = typeEmail.value;
+    let password = typePass.value;
+    mainpage.style.display = "block";
+    signInPage.style.display = "none";
+}
+
+
     function showAll(reviewId){
         let all = "";
         let review = products.filter(p=>p.id === reviewId)
@@ -44,7 +54,6 @@ function search(){
 function addCart(id){
     let addItem = products.filter(product => product.id ===id)
     shoppingCart.push(addItem);
-    console.log(shoppingCart);
 }
 
 

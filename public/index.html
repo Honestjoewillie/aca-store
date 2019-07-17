@@ -9,12 +9,18 @@
    
 </head>
 <body>
-    
+    <div id="mainPage" style="display:none">
     <input id="searchBar" type="text" placeholder="search here">
     <button id="push" onclick="search()">Begin Search</button>
     <button id="refresh" onclick="Products(products)">Back to home page</button>
     <button id="myCart" onclick="myCart()">Shopping Cart</button>
     <div id="stuff"></div>
+    </div>
+    <div id="signInPage">
+        Email<input id="email"><br>
+        Password <input id="password"><br>
+        <button type="button" id="loged" onclick="signedUp()">Sign up!</button>
+    </div>
 
      <script src="products.js"></script>    
     <script src="index.js"></script>   
