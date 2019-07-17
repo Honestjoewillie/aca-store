@@ -1,7 +1,29 @@
 
    let shoppingCart = [];
    let productDivs = [];
+   let emailTx = document.getElementById('email');
+   let passTx = document.getElementById('password');
+   let productDiv = document.getElementById('stuff');
+   let mainTx = document.getElementById('mainPage');
 
+
+    function storeProducts(){
+        fetch('https://acastore.herokuapp.com/products')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(serverProducts){
+            productDivs = serverProducts;
+            Products(productDivs);
+        });
+    }
+
+    function signedUp(){
+        let email = emailTx.value;
+        let password = passTx.value;
+        mainTx.style.display = "block";
+        signInPage.style.display = "none";
+    }
    function Products(products){
     for(let i=0; i < products.length; i++){
         let product = products[i]; 
@@ -26,20 +48,20 @@ Products(products);
 }
 let typeEmail = document.getElementById("email");
 let typePass = document.getElementById("password");
+
 function signedUp(){
     let email = typeEmail.value;
     let password = typePass.value;
-    mainpage.style.display = "block";
+    mainTx.style.display = "block";
     signInPage.style.display = "none";
 }
-
 
     function showAll(reviewId){
         let all = "";
         let review = products.filter(p=>p.id === reviewId)
         Products(review);
         let productReview =document.getElementById("review${product.id}");
-        review[0].reviews.map(review =>
+        review.reviews.map(review =>
             all+= `<div id="review"><div>${review.rating}</div><div>${review.description}</div></div>`)
             productReview.innerHTML = all;
 }
@@ -54,6 +76,12 @@ function search(){
 function addCart(id){
     let addItem = products.filter(product => product.id ===id)
     shoppingCart.push(addItem);
+}
+function myCart(){
+    Products(shoppingCart);
+    let buy = document.createElement('div');
+    buy.innerHTML = 'button onclick="buyNow()">Buy Stuff!</button>';
+    productDiv.appendChild(buy);
 }
 
 
